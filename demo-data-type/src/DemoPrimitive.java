@@ -91,7 +91,7 @@ public class DemoPrimitive {
     char c1 = 'a';
     char c2 = '#';
     char c3 = '2';
-    char c4 = 'A'
+    char c4 = 'A';
     System.out.println(c3); // 2
 
 
