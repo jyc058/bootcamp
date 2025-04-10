@@ -173,7 +173,7 @@ public class Demoif {
       for (int i = 0; i < s5.length(); i = i + 1) { // 0,1,2,3,4
       System.out.println("i=" +i);
       if (s5.charAt(i) == 'o') {
-        counter = counter + 1;
+        counter ++;
         System.out.println("Number of o=" + counter);
         }
       }
