@@ -7,8 +7,8 @@ public class DemoForLoop {
         System.out.println(x); // 16
 
         int a = 2;
-        for( int i = 0; i < 3; i++) {
-            a *= 2 ;
+        for (int i = 0; i < 3; i++) {
+            a *= 2;
         }
         System.out.println(a);
 
@@ -18,21 +18,21 @@ public class DemoForLoop {
         int num1 = 9;
         int num2 = 17;
         int max = -1;
-        if(num1 > num2){
+        if (num1 > num2) {
             max = num1;
         } else {
             max = num2;
         }
         System.out.println(max);
 
-        
+
         // 0 - 100, Find the largest odd number, which is < 90
         // for
         int maxOdd = -1;
         for (int i = 0; i < 101; i++) {
-            if(i % 2 == 1 && i < 90 && i > maxOdd) {
+            if (i % 2 == 1 && i < 90 && i > maxOdd) {
                 maxOdd = i;
-            } 
+            }
         }
         System.out.println(maxOdd);
 
@@ -40,7 +40,7 @@ public class DemoForLoop {
         // 0 + 2 + 4...+ 20
         int sumEven = 0;
         for (int i = 0; i < 21; i++) {
-            if(i % 2 != 1) {
+            if (i % 2 != 1) {
                 sumEven += i;
             }
         }
@@ -50,65 +50,96 @@ public class DemoForLoop {
         int box = 0;
         for (int i = 0; i < 31; i++) {
             if (i < 20) {
-                if ( i % 2 == 1) {
+                if (i % 2 == 1) {
                     box += i;
                 }
             } else {
-                if ( i % 2 != 1) {
+                if (i % 2 != 1) {
                     box += i;
                 }
             }
-                
-    }
-    System.out.println(box); //250
 
-    // Searching
-    String s1 = "welcome to bootcamp.";
-    // 1. Find the number of 'o'
-    int count = 0;
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1.charAt(i) == 'o') {
-            count++;
         }
-    }
-    System.out.println(count);
+        System.out.println(box); // 250
+
+        // Searching
+        String s1 = "welcome to bootcamp.";
+        // 1. Find the number of 'o'
+        int count = 0;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) == 'o') {
+                count++;
+            }
+        }
+        System.out.println(count);
 
 
-    // Approach 1: simple if
-    for(int i = 0; i < 3; i++){
-        if (i % 2 == 0) {
-            System.out.println(i);
+        // Approach 1: simple if
+        for (int i = 0; i < 3; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
         }
-    }
-    // Approach 2: continue
-    for(int i = 0; i < 3; i++){
-        if(i % 2 == 1){                 // ! 要fil走的東西
-            continue;                  // Skip the rest of code, goes to i++
-        }
-        if (i > 100) {               // !要fil走的東西
-            continue;
-        }
-        System.out.println(i); // 0,1,2
+        // Approach 2: continue
+        for (int i = 0; i < 3; i++) {
+            if (i % 2 == 1) { // ! 要fil走的東西
+                continue; // Skip the rest of code, goes to i++
+            }
+            if (i > 100) { // !要fil走的東西
+                continue;
+            }
+            System.out.println(i); // 0,1,2
         }
 
         // ! for + break
         // Approach 1: simple if
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             if (i < 2) {
                 System.out.println(i); // 0,1
             }
         }
 
-       // Approach 2: break
-       for(int i = 0; i < 3; i++) {
-        if (i >= 2) {
-            break;                  // Skip the rest of code, goes to i++
+        // Approach 2: break
+        for (int i = 0; i < 3; i++) {
+            if (i >= 2) {
+                break; // Skip the rest of code, goes to i++
+            }
+            System.out.println(i); // 0,1
         }
-        System.out.println(i); // 0,1
-      }
-        
-    
-    }
 
+        // Question: Sum up 5 - 15 -> result
+        // the product of 16 - 20 -> result 2
+        // Single for loop
+
+        int total = 0;
+        int product = 1;
+
+        for (int i = 0; i < 21; i++) {
+            if (i >= 5 && i <= 15) {
+                total += i;
+                continue;
+            }
+            if (i >= 16 && i <= 20) {
+                product *= i;
+            }
+        }
+        System.out.println(total);
+        System.out.println(product);
+
+        for(int i = 10; i >= 0; i--) {
+            System.out.println(i);
+        }
+
+        // ! Nested Loop
+        // i=0, j=0,1
+        // i=1. j=0,1
+        // i=2, j=0,1
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.println("i=" + i + ",j=" +j);
+            }
+        }
+        
+    }
 }
 
