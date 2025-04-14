@@ -86,9 +86,11 @@ public class DemoArray {
         ages[0] = 10;
         ages[1] = 20;
         ages[2] = 30;
+        int evenNum = 0;
         for (int i = 0; i < ages.length; i++) {
             if (ages[i] % 2 == 0)
-                System.out.println("Age = " + ages[i]);
+            evenNum = ages[i];
+                System.out.println("Age = " + evenNum);
         }
 
         // array + for + if
@@ -256,9 +258,22 @@ public class DemoArray {
         // is there any number appear 3 times or more?
         // print out true
         // ! homework
-
+        int[] ns = new int[] {0, 9, 1, 9, 2, 0, 9};
+        int[] ct = new int [10]; 
+        for (int i = 0; i < ns.length; i++) {
+            ct[ns[i]]++;
+    }
+        boolean found = false;
+        for (int i = 0; i < ct.length; i++) {
+            if (ct[i] >= 3) {
+                found = true;
+                break;                
+            }
+        }
+        System.out.println(found);
         
 
+        
         String[] lastNames = new String[] {"Lau", "Wong", "Chan"};
         // 8 primitives + String
     }
