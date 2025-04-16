@@ -1,6 +1,7 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
-public class LoopExercise {
+public class LoopExecrise {
   public static void main(String[] args) {
     // 1. Print 6 times hello
     // Use: for loop
@@ -49,15 +50,15 @@ public class LoopExercise {
     // Use: for loop + if
     int evenSum = 0;
     int oddSum = 0;
-    for (int i =0; i < 11; i++) {
+    for (int i = 0; i < 11; i++) {
       if (i % 2 != 0) {
         oddSum += i;
       } else {
         evenSum += i;
       }
     }
-   System.out.println(oddSum + "and " + evenSum);
-   System.out.println("Product=" + oddSum * evenSum);
+    System.out.println(oddSum + "and " + evenSum);
+    System.out.println("Product=" + oddSum * evenSum);
 
 
     // 7. Check if 'd' exists in the string.
@@ -78,7 +79,7 @@ public class LoopExercise {
     String s8b = "cba";
     boolean IsSubstring = false;
     int lengthA = s8a.length();
-    int lengthB = s8b.length(); 
+    int lengthB = s8b.length();
     for (int i = 0; i <= lengthA - lengthB; i++) {
       if (s8a.substring(i, i + lengthB).equals(s8b)) {
         IsSubstring = true;
@@ -120,7 +121,7 @@ public class LoopExercise {
     String uppercase = s11.toUpperCase();
     int cou = 0;
     for (int i = 0; i < s11.length(); i++) {
-      if (s11.charAt(i) == uppercase.charAt(i) ) {
+      if (s11.charAt(i) == uppercase.charAt(i)) {
         cou++;
       }
     }
@@ -141,33 +142,120 @@ public class LoopExercise {
     // u -> 4 score
     // for other character, -1 score
     String s13 = "lrlaudbucp";
+    int totalScore = 0;
+    for (int i = 0; i < s13.length(); i++) {
+      char word1 = s13.charAt(i);
+      switch (word1) {
+        case 'l':
+          totalScore += 1;
+          break;
+        case 'r':
+        totalScore += 3;
+        break;
+        case'd':
+        totalScore += 2;
+        break;
+        case'u':
+        totalScore += 4;
+        break;
+        default:
+        totalScore -= 1;
+          break;
+      }
+    }
+    System.out.println(totalScore);
 
     // 14. Assign the long values of 1, 4, 9, -4 to the given array arr14
     long[] arr14 = new long[4];
+    arr14[0] = 1L;
+    arr14[1] = 4L;
+    arr14[2] = 9L;
+    arr14[3] = -4L;
+      System.out.println(Arrays.toString(arr14));
+
 
     // 15. Find the max value and min value in arr14
     // Use One Loop + if
+    //long[] arr14 = {1L, 4L, 9L, -4L};
+    long maxValue = Long.MIN_VALUE;
+    long minValue = Long.MAX_VALUE;
+    for (int i = 0; i < arr14.length; i++) {
+      if (arr14[i] > maxValue) {
+        maxValue = arr14[i];
+      }
+        if (arr14[i] < minValue) {
+          minValue = arr14[i];
+        }
+      }
+    System.out.println("max value=" + maxValue);
+    System.out.println("min value=" + minValue);
+
 
     // 16. Declare a float value (arr16) array with value 0.2, 0.3, 0.6
+    float[] arr16 = {0.2f, 0.3f, 0.6f};
+    System.out.println(Arrays.toString(arr16));
 
     // 17. Add value 0.1 to each of value in array arr16
     // Print: [0.3, 0.4, 0.7]
     // Use: BigDecimal
+    
+    BigDecimal[] bd1 = new BigDecimal[arr16.length];
+    BigDecimal bd2 = BigDecimal.valueOf(0.1);
+    for (int i = 0; i < arr16.length; i++) {
+    BigDecimal bd3 = BigDecimal.valueOf(arr16[i]);
+    bd1[i] = bd3.add(bd2);
+    }
+    float[] bd4 = new float[bd1.length];
+    for (int i = 0; i < bd1.length; i++) {
+      bd4[i] = bd1[i].floatValue(); 
+    }
+    System.out.println(Arrays.toString(bd1));
+
 
     // 18. Count the number of target strings in the String[]
     String[] arr18 = new String[] {"Steve", "Tommy", "Katie", "Tommy", "Lydia"};
     String target = "Tommy";
     // Print "count name=2"
+    int coun = 0;
+    for (int i = 0; i < arr18.length; i++) {
+      if (arr18[i].equals(target)) {
+        coun++;
+      }
+    }
+    System.out.println("count name=" + coun);
 
     // 19. swap the max digit and min digit
     // Assumption: each digit value appear once in the String
     // Print: "49280"
     String s19 = "40289";
+    char maxDigit = '9';
+    char minDigit = '0';
+    for (int i = 0; i < s19.length(); i++) {
+      char r = s19.charAt(i);
+      if (r > maxDigit) {
+        maxDigit = r;
+      }
+      if (r < minDigit) {
+        minDigit = r;
+      }
+    }
+    String swap = s19.replace(maxDigit, 'x')
+    .replace(minDigit, maxDigit )
+    .replace('x', minDigit);
+    System.out.println(swap);
+
+
 
     // 20. Find the longest String in the String array
     // Print "longest=programming"
     String[] arr20 =
         new String[] {"python", "array", "programming", "java", "bootcamp"};
-
+        String longest ="";
+        for (int i = 0; i < arr20.length; i++) {
+          if (arr20[i].length() > longest.length()) {
+            longest = arr20[i];
+          }
+        }
+        System.out.println("longest=" + longest);
   }
 }
