@@ -9,22 +9,19 @@ public class JavaQuest5 {
     // if found, print "Found."
     // if not found, print "Not Found."
     // code here ...
-    if (str.length() -1 == 11) {
-      if (str.charAt(11) == 'c') {
-      }
-        System.out.println("Found");
-       } else {
-        System.out.println("not found");
+
+    boolean isFound = false;
+    for (int i = 0; i < str.length(); i++) {
+      if (str.charAt(i) == target) {
+        isFound = true;
       }
     }
-    
-
-
-      
-    
+    if (isFound) {
+      System.out.println("Found.");
+    } else {
+      System.out.println("Not Found!");
+    }
   }
-
-
-
+}
 
 

@@ -12,6 +12,7 @@ public class JavaQuest6 {
       System.out.println(" " + nextNumber);
       first = second;
       second = nextNumber;
+      
     }
   }
 }
