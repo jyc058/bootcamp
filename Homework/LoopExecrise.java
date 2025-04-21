@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 public class LoopExecrise {
@@ -205,9 +206,9 @@ public class LoopExecrise {
     BigDecimal bd3 = BigDecimal.valueOf(arr16[i]);
     bd1[i] = bd3.add(bd2);
     }
-    float[] bd4 = new float[bd1.length];
+    double[] bd4 = new double[bd1.length];
     for (int i = 0; i < bd1.length; i++) {
-      bd4[i] = bd1[i].floatValue(); 
+      bd4[i] = bd1[i].doubleValue();
     }
     System.out.println(Arrays.toString(bd1));
 
