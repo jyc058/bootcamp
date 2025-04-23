@@ -30,6 +30,7 @@ public class Cart {
     this.items = newItems;
   }
 
+   // similar to BMI
   public double checkoutAmount() {
     BigDecimal total = BigDecimal.valueOf(0.0);
     for (int i = 0; i < this.items.length; i++) {
