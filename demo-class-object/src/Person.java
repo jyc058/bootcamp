@@ -3,9 +3,12 @@ import java.math.RoundingMode;
 
 public class Person {
   // height weight -> bmi
+  // ! Attributes (Instance Varibale)
+  // Instance means Object
   private double height;
   private double weight;
-
+  private Name name;
+  
   public Person() {
 
   }
@@ -16,6 +19,7 @@ public class Person {
   this.weight = weight;
   }
 
+  // ! Instance Method 
   public void setHeight(double height) {
     this.height = height;
   }
@@ -39,9 +43,33 @@ public class Person {
         .doubleValue();
   }
 
+  //static getBMI
+  public static void getBMI(double height, double weight) {
+    double bmi = BigDecimal.valueOf(weight)
+        .divide(BigDecimal.valueOf(Math.pow(height, 2.0)), 2,
+            RoundingMode.HALF_UP)
+        .doubleValue();
+    System.out.println(bmi);
+  }
+
   // getWeightStatus (presentation)
   public String getWeightStatus() {
     double bmi = this.getBmi();
+    if (bmi < 18.5) {
+      return "Underweight"; // "return" -> exit method
+    } else if (bmi >= 18.5 && bmi < 25.0) {
+      return "Normal";
+    } else if (bmi >= 25.0 && bmi < 30.0) {
+      return "Overweight";
+    }
+    return "Obese";
+  }
+
+  public static String getWeightStatus(double height, double weight) {
+    double bmi = BigDecimal.valueOf(weight)
+    .divide(BigDecimal.valueOf(Math.pow(height, 2.0)), 2,
+    RoundingMode.HALF_UP)
+    .doubleValue();
     if (bmi < 18.5) {
       return "Underweight"; // "return" -> exit method
     } else if (bmi >= 18.5 && bmi < 25.0) {
@@ -62,6 +90,10 @@ public class Person {
     Person kawachii = new Person (3.0, 999);
     System.out.println(kawachii.getBmi());
     System.out.println(kawachii.getWeightStatus());
+
+    Person.getBMI(3.0, 999);
+
+    Person.getWeightStatus(1.8, 999);
 
   }
 }

@@ -29,7 +29,7 @@ public class Cart {
     newItems[newItems.length - 1] = abc;
     this.items = newItems;
   }
-
+  
    // similar to BMI
   public double checkoutAmount() {
     BigDecimal total = BigDecimal.valueOf(0.0);
