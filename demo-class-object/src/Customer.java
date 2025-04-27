@@ -24,7 +24,7 @@ public class Customer { // blueprint 藍圖
     }
     newOrders[newOrders.length -1] = order;
     this.orders = newOrders;
-  }
+  } 
 
   // 1 second -> 1000ms
   // 0 - 1 ms

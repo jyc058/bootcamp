@@ -56,6 +56,5 @@ public class Order {
     Order order3 = new Order(); // counter  ->3
     System.out.println(order3.getId()); // 3
 
-    System.out.println(Order.amount());
   }
 }
