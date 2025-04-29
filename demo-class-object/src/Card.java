@@ -10,19 +10,19 @@ public class Card {
   public static final char HEART = '3'; // constant
   public static final char SPADE = '4'; // constant
 
-  public static final char ACE = 'Z';
-  public static final char TWO = '2';
-  public static final char THREE = '3';
-  public static final char FOUR = '4';
-  public static final char FIVE = '5';
-  public static final char SIX = '6';
-  public static final char SEVEN = '7';
-  public static final char EIGHT = '8';
-  public static final char NINE = '9';
-  public static final char TEN = 'V';
-  public static final char JACK = 'W';
-  public static final char QUEEN = 'X';
-  public static final char KING = 'Y';
+  public static final char ACE = 'M';
+  public static final char TWO = 'A';
+  public static final char THREE = 'B';
+  public static final char FOUR = 'C';
+  public static final char FIVE = 'D';
+  public static final char SIX = 'E';
+  public static final char SEVEN = 'F';
+  public static final char EIGHT = 'G';
+  public static final char NINE = 'H';
+  public static final char TEN = 'I';
+  public static final char JACK = 'J';
+  public static final char QUEEN = 'K';
+  public static final char KING = 'L';
 
   // 1. Readability
   // 2. Data Type Range ()

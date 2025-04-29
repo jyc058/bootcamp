@@ -8,18 +8,18 @@ public class Person {
   private double height;
   private double weight;
   private Name name;
-  
+
   public Person() {
 
   }
 
   // !!!!!!!!!!!!!!!! all arguement constructor
   public Person(double height, double weight) {
-  this.height = height;
-  this.weight = weight;
+    this.height = height;
+    this.weight = weight;
   }
 
-  // ! Instance Method 
+  // ! Instance Method
   public void setHeight(double height) {
     this.height = height;
   }
@@ -43,13 +43,20 @@ public class Person {
         .doubleValue();
   }
 
-  //static getBMI
+  // static getBMI
   public static void getBMI(double height, double weight) {
     double bmi = BigDecimal.valueOf(weight)
         .divide(BigDecimal.valueOf(Math.pow(height, 2.0)), 2,
             RoundingMode.HALF_UP)
         .doubleValue();
     System.out.println(bmi);
+  }
+
+  public String toString() {
+    return "Person(" //
+        + "height= " + this.height //
+        + ",weight=" + this.weight //
+        + ")";
   }
 
   // getWeightStatus (presentation)
@@ -65,11 +72,12 @@ public class Person {
     return "Obese";
   }
 
+
   public static String getWeightStatus(double height, double weight) {
     double bmi = BigDecimal.valueOf(weight)
-    .divide(BigDecimal.valueOf(Math.pow(height, 2.0)), 2,
-    RoundingMode.HALF_UP)
-    .doubleValue();
+        .divide(BigDecimal.valueOf(Math.pow(height, 2.0)), 2,
+            RoundingMode.HALF_UP)
+        .doubleValue();
     if (bmi < 18.5) {
       return "Underweight"; // "return" -> exit method
     } else if (bmi >= 18.5 && bmi < 25.0) {
@@ -87,13 +95,20 @@ public class Person {
     System.out.println(jacky.getBmi());
     System.out.println(jacky.getWeightStatus());
 
-    Person kawachii = new Person (3.0, 999);
+    Person kawachii = new Person(3.0, 999);
     System.out.println(kawachii.getBmi());
     System.out.println(kawachii.getWeightStatus());
 
     Person.getBMI(3.0, 999);
 
     Person.getWeightStatus(1.8, 999);
+
+    // You prepare the toString() method, sysout calls the object toString method.
+    System.out.println(jacky.equals(kawachii));// false
+    System.out.println(jacky);
+
+
+    
 
   }
 }
