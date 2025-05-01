@@ -1,4 +1,4 @@
-public class Phone extends Machine { // Student "has" College
+public class Phone extends Machine { // Phone "has" Camera
   private final String model;
   private Camera camera;
   private Photo[] photos;

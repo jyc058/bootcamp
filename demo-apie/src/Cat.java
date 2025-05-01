@@ -19,12 +19,11 @@ public class Cat extends Animal {
   // ! inherit all instance method: getName()
   public String getName() {
     return super.getName();
+  }
 
-    // Child class can override the parent class method
-    @Override
-    public void sound() {
-      System.out.println("Meow...");
-    }
-
+  // Child Class can override the parent class method
+  @Override
+  public void sound() {
+    System.out.println("Meow ...");
   }
 }

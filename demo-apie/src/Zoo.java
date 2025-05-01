@@ -4,12 +4,12 @@ public class Zoo {
   // private Dog dog;
 
   public Zoo() {
-     this.animals = new Animal[3];
-     this.animals[0] = new Cat("John", 2);
-     this.animals[1] = new Dog("Peter");
-   // this.cat = new Cat("John", 2);
-   // this.dog = new Dog("Peter");
-   this.animals[2] = new Panda("Vincent", 38);
+    this.animals = new Animal[3];
+    this.animals[0] = new Cat("John", 2);
+    this.animals[1] = new Dog("Peter");
+    // this.cat = new Cat("John", 2);
+    // this.dog = new Dog("Peter");
+    this.animals[2] = new Panda("Vincent");
   }
 
   public Animal getPanda() {
@@ -29,12 +29,12 @@ public class Zoo {
     System.out.println(zoo1.getPanda().getName()); // Vincent
     zoo1.getPanda().setName("Jenny");
     System.out.println(zoo1.getPanda().getName()); // Jenny
-    
+
     Zoo zoo2 = new Zoo();
     Animal animal = zoo2.getPanda();
     System.out.println(animal.getName()); // Vincent
 
-    zoo2.getDog().sound();
-    zoo2.getCat().sound();
-}
+    zoo2.getDog().sound(); // wow wow ...
+    zoo2.getCat().sound(); // Meow ...
+  }
 }

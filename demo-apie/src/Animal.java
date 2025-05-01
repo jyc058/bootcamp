@@ -29,7 +29,7 @@ public class Animal { // more abstract -> Parent Class
   }
 
   public void sound() {
-    System.out.println("Meow...");
+    System.out.println("default sound ...");
   }
 
   public static void main(String[] args) {

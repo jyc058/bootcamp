@@ -1,30 +1,34 @@
 import java.util.Arrays;
 
 public class Teacher {
-  private static Candy[] candies = new Candy[] {new Candy("RED"),
-      new Candy("RED"), new Candy("RED"), new Candy("RED"), new Candy("RED"),
-      new Candy("YELLOW"), new Candy("YELLOW"), new Candy("YELLOW"),
-      new Candy("YELLOW"), new Candy("YELLOW"), new Candy("YELLOW"),
-      new Candy("YELLOW"), new Candy("BLUE"), new Candy("BLUE"),
-      new Candy("BLUE"), new Candy("BLUE"), new Candy("BLUE"),
-      new Candy("BLUE"), new Candy("BLUE"), new Candy("BLUE"),
+  private Candy[] candies;
 
-  };
-
-  // static?
-  public void distributes(Child child, Candy candy) {
-    child.receive(candy);
+  public Teacher() {
+    this.candies = new Candy[] {new Candy("RED"), new Candy("RED"),
+        new Candy("RED"), new Candy("RED"), new Candy("RED"),
+        new Candy("YELLOW"), new Candy("YELLOW"), new Candy("YELLOW"),
+        new Candy("YELLOW"), new Candy("YELLOW"), new Candy("YELLOW"),
+        new Candy("YELLOW"), new Candy("BLUE"), new Candy("BLUE"),
+        new Candy("BLUE"), new Candy("BLUE"), new Candy("BLUE"),
+        new Candy("BLUE"), new Candy("BLUE"), new Candy("BLUE"),};
   }
 
-  public void distributeAll(Child[] childs) {
-    int totalCandyCount = Teacher.candies.length;
+  public boolean distribute(Child child, Candy candy) {
+    return child.receive(candy);
+  }
+
+  public boolean distributeAll(Child[] childs) {
+    int totalCandyCount = this.candies.length;
     int idx = 0;
+    boolean isEmpty = false;
     while (true) { // 20 times
-      boolean isEmpty = false;
-      for (int i = 0; i < childs.length; i++) {
-        distributes(childs[i], Teacher.candies[idx]);
-        Teacher.candies[idx] = null;
-        if(idx + 1 >= totalCandyCount) {
+      for (int i = 0; i < childs.length; i++) { // 0-5
+        System.out.println(idx);
+        if (!distribute(childs[i], this.candies[idx])) {
+          return false;
+        }
+        this.candies[idx] = null;
+        if (idx + 1 >= totalCandyCount) {
           isEmpty = true;
           break;
         }
@@ -34,14 +38,15 @@ public class Teacher {
         break;
       }
     }
+    return true;
   }
 
   // Testing
   public static void main(String[] args) {
-    // Teacher t1 = new Teacher();
+
     // Child child1 = new Child();
     // Candy candy1 = new Candy("RED");
-    // t1.distributes(child1, candy1);
+    // t1.distribute(child1, candy1);
 
     Child child1 = new Child();
     Child child2 = new Child();
@@ -51,12 +56,11 @@ public class Teacher {
     Child child6 = new Child();
     Child[] childs =
         new Child[] {child1, child2, child3, child4, child5, child6};
-    Teacher t1 = new Teacher();
-    t1.distributeAll(childs);
-    
+    Teacher teacher1 = new Teacher();
+    teacher1.distributeAll(childs);
+
     for (int i = 0; i < childs.length; i++) {
       System.out.println(Arrays.toString(childs[i].getCandies()));
     }
   }
 }
-

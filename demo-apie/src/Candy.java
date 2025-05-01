@@ -1,5 +1,5 @@
 public class Candy {
-  // how to distinguish 2 RED color of candies
+  // How to distinguish 2 RED color of candies.
   private String color;
 
   public Candy(String color) {
@@ -8,10 +8,11 @@ public class Candy {
 
   public String getColor() {
     return this.color;
+  }
 
-    public String toString() {
-      return "Candy(" //
-       )"
-    }
+  public String toString() {
+    return "Candy(" //
+        + "color=" + this.color //
+        + ")";
   }
 }

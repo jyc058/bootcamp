@@ -1,19 +1,19 @@
 import java.util.Random;
 
 public class Student {
-  // Bag
-  // Bag has many Ball (5)
+  // A student has a bag
+  // A bag has many Balls (5)
 
-  // A Ball has a color and a number
+  // A ball has a color and a number
   // 3 different colors (RED, YELLOW, BLUE)
   // number 1-9
 
   // Student actions:
-  // 1. Place a ball into the bag
+  // 1. place a ball into the bag
   // 2. random pick a ball from bag, return ball.toString() (empty bag -> "Empty Bag!!!")
 
   private Bag bag;
-  
+
   public Student() {
     this.bag = new Bag();
   }
@@ -22,13 +22,17 @@ public class Student {
     return this.bag.add(ball);
   }
 
+  public Bag getBag() {
+    return this.bag;
+  }
+
   public String randomPick() {
     if (this.bag.isEmpty()) {
       return "Empty Bag!!!";
     }
     Ball ball = null;
     while (ball == null) {
-      int random = new Random().nextInt(this.bag.getSize()); // 0 - 4
+      int random = new Random().nextInt(this.bag.getSize()); // 0-4
       ball = this.bag.pick(random);
       if (ball != null) {
         break;
@@ -41,6 +45,13 @@ public class Student {
     Student john = new Student(); // Create Student Object, Bag Object, Ball Array Object
     john.place(new Ball());
     john.place(new Ball());
+    john.place(new Ball());
+    john.place(new Ball());
+    john.place(new Ball());
+    john.randomPick();
+    System.out.println(john.getBag().getSize()); // 5
+
+
   }
 }
 

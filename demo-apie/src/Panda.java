@@ -1,6 +1,7 @@
 public class Panda extends Animal {
-  
-  public Panda(String name, int age) {
+
+  public Panda(String name) {
     super(name);
   }
+  
 }
