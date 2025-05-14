@@ -58,6 +58,16 @@ public void setSuit(char suit) {
     return false;
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    if(this == obj)
+    return true;
+    if(!(obj instanceof Card))
+    return false;
+    Card card = (Card) obj;
+    return this.rank == card.getRank() && this.suit == card.getSuit();
+  }
+
   // this (self)
   public boolean equals(Card card) {
     return this.rank == card.getRank() && this.suit == card.getSuit();
@@ -104,7 +114,11 @@ public String toString() {
     System.out.println();
 
     System.out.println(c6); // card(rank=Z, suit=1)
-    System.out.println(c1); // 
+    System.out.println(c1);
+
+    System.out.println(c6.equals(new Cat("John", 3))); // false
+    System.out.println(c6.equals(c6)); // true
+    System.out.println(c6.equals(new Card(ACE, DIAMOND))); // true
   }
 
 }

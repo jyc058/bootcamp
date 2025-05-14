@@ -1,4 +1,4 @@
 public interface Borrowable {
-  void borrow();
-  boolean isBorrowed();
+  boolean borrow(Book book);
+  
 }

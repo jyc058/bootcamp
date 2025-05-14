@@ -1,11 +1,18 @@
 public class SavingAccount extends SubAccount {
+   private Currency currency;
+
+   // 
+   public static SavingAccount ofHKD() {
+    return new SavingAccount(Currency.HKD);
+   }
   
-  public SavingAccount() {
-    
+
+  private SavingAccount(Currency currency) {
+    this.currency = currency;
   }
 
   public static void main(String[] args) {
-    SavingAccount sa = new SavingAccount();
+    SavingAccount sa = new SavingAccount(Currency.USD);
     System.out.println(sa.getBalance()); // 0.0
     sa.credit(150);
     System.out.println(sa.debit(100)); // true

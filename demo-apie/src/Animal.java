@@ -3,7 +3,7 @@ public class Animal { // more abstract -> Parent Class
 
   // common attributes for Cat, Dog
   private String name;
-  private Cat cat;
+  //private Cat cat;
 
   // Constructor cannot be inheirted
   public Animal(String name) {
