@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Cat extends Animal {
@@ -7,11 +8,17 @@ public class Cat extends Animal {
     this.name = name;
   }
 
+  public Cat(String name, LocalDate dob) {
+    super(dob);
+    this.name = name;
+  }
+
   public String getName() {
     return this.name;
   }
 
-  // for fun
+  // ! Method Signature (Override): Return type + Method Name + Arguments -> "int compareTo(Cat cat)"
+  // ! Method Signature (Polymorphism): Method Name + Arguments -> "compareTo(Cat cat)"
   public int compareTo(Cat cat) {
     if (this.name.length() == cat.getName().length()) {
       return 0;
@@ -36,9 +43,10 @@ public class Cat extends Animal {
 
   @Override
   public String toString() {
-    return "Cat("
-      + "name=" + this.name
-      + ")";
+    return "Cat(" //
+        + "name=" + this.name //
+        + ",dob=" + super.getDob() //
+        + ")";
   }
 
   // toString(), hashCode()

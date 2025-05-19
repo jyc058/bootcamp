@@ -32,7 +32,7 @@ public class ExceptionExercise4 {
   public static class UserRegistrationException extends RuntimeException {
     // code here ...
     public UserRegistrationException(String message) {
-      super(message);
+      super(message); // call parent constructor, then the parent store the message
     }
   }
 
@@ -43,19 +43,50 @@ public class ExceptionExercise4 {
   public static void registerUser(String username, String password,
       String email) {
     // code here ...
-    try {
+    // try {
+    //   validateUsername(username);
+    //   validatePassword(password);
+    //   validateEmail(email);
+    //   System.out.println("User registered successfully");
+    // } catch (IllegalArgumentException e) {
+    //   throw new UserRegistrationException(e.getMessage());
+    // }
+  
+    String errorMessage = "";
+    boolean errorFound = false;
+  try {
     validateUsername(username);
-    validatePassword(password);
-    validateEmail(email);
-    System.out.println("User registered successfully");
-    } catch (IllegalArgumentException e) {
-      throw new UserRegistrationException(e.getMessage())
-    }
+  } catch (IllegalArgumentException e) {
+    errorFound = true;
+    errorMessage += e.getMessage();
   }
+
+  try {
+    validatePassword(password);
+  } catch (IllegalArgumentException e) {
+    errorFound = true;
+    errorMessage += e.getMessage();
+  }
+
+  try {
+    validateEmail(email);
+  } catch (IllegalArgumentException e) {
+    errorFound = true;
+    errorMessage += e.getMessage();
+  }
+
+  if (errorFound) {
+    throw new UserRegistrationException(errorMessage);
+  }
+  System.out.println("User registered successfully: " + username);
+}
 
   // Throw IllegalArgumentException if String username is null or empty string
   private static void validateUsername(String username) {
     // code here ...
+    if (username == null || "".equals(username)) {
+      throw new IllegalArgumentException("Username validation fail");
+    }
   }
 
   // Throw IllegalArgumentException
@@ -63,10 +94,21 @@ public class ExceptionExercise4 {
   // any special characters of !@$&_
   private static void validatePassword(String password) {
     // code here ...
+    boolean withSpecialChar = password.contains("!") && password.contains("@")
+        && password.contains("$") && password.contains("&")
+        && password.contains("_");
+    if (password == null || password.length() < 8 || withSpecialChar) {
+      throw new IllegalArgumentException(
+          "Password must be at least 8 characters");
+    }
   }
 
   // Throw IllegalArgumentException if String email is null or it does not contain character @
   private static void validateEmail(String email) {
     // code here ...
+    if (email == null || !email.contains("@")) {
+      throw new IllegalArgumentException(
+          "Email must contain '@' and cannot be null");
+    }
   }
 }
