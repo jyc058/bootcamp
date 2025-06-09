@@ -6,7 +6,7 @@ public class Calculator {
   }
   
   // ! Static method (input & self variable -> output)
-  public int sum(int x, int y) {
+  public static int sum(int x, int y) {
     //int + int -> int
     return x + y + this.age;
   }
